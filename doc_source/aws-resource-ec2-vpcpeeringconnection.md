@@ -5,7 +5,7 @@ Requests a VPC peering connection between two VPCs: a requester VPC that you own
 **Note**  
 Limitations and rules apply to a VPC peering connection\. For more information, see the [limitations](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations) section in the *VPC Peering Guide*\.
 
-The owner of the accepter VPC must accept the peering request to activate the peering connection\. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected\.
+Creating this resource using CloudFormation does not require manual acceptance of a VPC Peering Connection request\. For cross-account peering your account will assume a role in the other account to accept and create the VPC Peering Connection in one stack update, as detailed in [Walkthrough: Peer with an Amazon VPC in another AWS account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html)\. 
 
 If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of `failed`\.
 
@@ -60,7 +60,7 @@ Default: The Region in which you make the request\.
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `PeerRoleArn`  <a name="cfn-ec2-vpcpeeringconnection-peerrolearn"></a>
-The Amazon Resource Name \(ARN\) of the VPC peer role for the peering connection in another AWS account\.  
+The Amazon Resource Name \(ARN\) of the VPC peer role for the peering connection in another AWS account\. 
 This is required when you are peering a VPC in a different AWS account\.  
 *Required*: Conditional  
 *Type*: String  
